@@ -4,7 +4,7 @@ import pandas as pd
 def addBook(ID, bookName):
     data_raw = pd.read_excel("rented.xlsx")
     data = data_raw.to_numpy()
-    print(data[0])
+    # print(data[0])
     arr=  []
     unfilled = False
     curr_users = []
@@ -26,7 +26,7 @@ def addBook(ID, bookName):
     else:
         arr = [""] * len(data)
     arr[i] = bookName
-    print(arr)
+    # print(arr)
     data_raw.insert(filled_len, filled_len, arr)
     data_raw.to_excel("rented.xlsx", index=False)
 
@@ -62,11 +62,18 @@ def showUser(ID):
         curr_users.append(item[0])
     i = curr_users.index(ID)
     print(data[i])
+
+def showAll():
+    data_raw = pd.read_excel("rented.xlsx")
+    print(data_raw)
+    
     
 
 # addBook(101, "NightFall")
 
-# removeBook(202, "b3")
+# removeBook(101, "NightFall")
 
-# showUser(303)
+# showUser(101)
+
+showAll()
 
